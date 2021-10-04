@@ -1,0 +1,23 @@
+-provide :page_title, 'News'
+.album.py-5
+  .container
+    - if current_user && current_user.admin
+      = link_to 'add News', new_news_path, class: 'btn btn-primary'
+      hr
+    .row.row-cols-1.row-cols-sm-2.row-cols-md-3.g-3
+      - @news.each do |news|
+        .col
+          .card.shadow-sm
+            .card-body
+              p.card-text.fw-bold
+                = news.name
+              p.card-text
+                = news.body
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  = link_to 'Show', news, class: 'btn btn-sm btn-primary'
+                  - if current_user && current_user.admin
+                    = link_to 'Edit', edit_news_path(news), class: 'btn btn-sm btn-secondary'
+                    = link_to 'Destroy', news_path(news), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: 'Are you sure?' }
+                small.text-muted
+                  = news.formatted_created_at

@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title
+      = full_title(yield(:page_title))
+    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header.p-3.bg-dark.text-white
+      .container
+        .d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-lg-start
+          ul.nav.col-12.col-lg-auto.me-lg-auto.mb-2.justify-content-center.mb-md-0
+            li
+              = link_to 'Home', root_path, class: 'nav-link px-2 text-white'
+          .text-end
+            - if current_user
+              = link_to current_user.username, edit_user_registration_path, class: 'text-white m-3'
+              = link_to destroy_user_session_path, method: :delete, class: 'text-white' do
+                svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16"
+                  path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+                  path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+
+            - else
+              = link_to 'Log in', new_user_session_path, class: 'btn btn-outline-light me-2'
+              = link_to 'Sign-up', new_user_registration_path, class: 'btn btn-primary'
+          i.bi.bi-box-arrow-right
+    main.container.mt-3
+      - flash.each do |k, v|
+        = tag.div v, class: "alert alert-#{k}", role: 'alert'
+      = yield

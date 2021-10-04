@@ -1,0 +1,13 @@
+-provide :page_title, 'News detail'
+h1.mb-4
+  =@news.name
+p
+  strong
+= @news.formatted_created_at
+p.lead.my-3
+  = @news.body
+- if current_user && current_user.admin
+  .btn-group
+    = link_to 'Edit', edit_news_path(@news), class: 'btn btn-primary'
+    = link_to 'Destroy', news_path(@news), class: 'btn btn-danger', data: {method: :delete, confirm: 'Are you sure?'}
+hr.my-3

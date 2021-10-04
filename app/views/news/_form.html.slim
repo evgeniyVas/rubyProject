@@ -1,0 +1,24 @@
+= render 'shared/errors', object: @news
+= form_with(model: @news) do |form|
+  .mb-3.row
+    .col-sm-2.col-form-label
+      = form.label :name
+    .col-sm-10
+      = form.text_field :name, placeholder: 'Title', class: 'form-control'
+  .mb-3.row
+    .col-sm-2.col-form-label
+      = form.label :body
+    .col-sm-10
+      = form.text_area :body, class: 'form-control'
+  - if params[:action] == 'edit' or params[:action] == 'update'
+    .mb-3.row
+      .col-sm-2
+        | Edit counter
+      .col-sm-10
+        = tag.p @news.edit_counter, class: "#{'error_count' if @news.edit_counter == 5}"
+
+    = form.hidden_field :updated_at
+    = form.submit class: 'btn btn-primary me-2'
+    = link_to 'Cancel', @news, class: 'btn btn-light'
+  - else
+    = form.submit class: 'btn btn-primary'

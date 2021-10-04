@@ -1,0 +1,18 @@
+@import 'bootstrap';
+
+.field_with_errors {
+  .form-control {
+    border-color: $red;
+  }
+  label {
+    color: $red;
+  }
+}
+.error_count {
+  color: $red;
+}
+.alert-notice,
+.alert-alert{
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
