@@ -11,8 +11,11 @@
 .error_count {
   color: $red;
 }
-.alert-notice,
-.alert-alert{
+.alert-notice {
   background-color: #d1e7dd;
   color: #0f5132;
+}
+.alert-alert {
+  color: #664d03;
+  background-color: #ffecb5;
 }

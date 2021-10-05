@@ -14,6 +14,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'pg', '~> 1.1'
 gem "slim-rails"
 gem 'devise', '~> 4.8'
+gem 'sidekiq', '~> 6.2', '>= 6.2.2'
+gem "sidekiq-cron", "~> 1.1"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

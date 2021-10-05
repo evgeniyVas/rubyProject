@@ -1,0 +1,10 @@
+Latest news is here!
+
+<% @news.each do |news|%>
+  <%= news.name%>
+
+  <%= news.body%>
+===============================================
+<% end %>
+
+Visit our website: <%= @domain %>

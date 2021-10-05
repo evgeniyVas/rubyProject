@@ -1,0 +1,12 @@
+
+h4
+  | Latest news is here!
+
+- @news.each do |news|
+  p
+    = news.name
+  p
+    = news.body
+  hr
+p
+  = link_to "Visit our website", @domain

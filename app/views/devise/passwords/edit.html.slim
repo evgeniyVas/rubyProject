@@ -13,11 +13,9 @@
             | (
             = @minimum_password_length
             |  characters minimum)
-          br
         = f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control"
       .field.form-group.mb-3
         = f.label :password_confirmation, "Confirm new password"
-        br
         = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
       .actions
         = f.submit "Change my password", class: "btn btn-secondary"
