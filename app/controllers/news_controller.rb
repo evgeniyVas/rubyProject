@@ -8,6 +8,22 @@ class NewsController < ApplicationController
   end
 
   def show
+    # render stream: true
+    @comment = @news.comments.build
+    @comments = @news.comments.order created_at: :desc
+    comment_ids = []
+    @comments_author = {}
+    @comments.each do |comment|
+      if comment.user_id and !comment_ids.include? comment.user_id
+        comment_ids << comment.user_id
+      end
+    end
+
+    # User.find(comment_ids).each do |user|
+    User.where({id: comment_ids}).find_each do |user|
+      @comments_author[user.id] = user
+    end
+
   end
 
   def new

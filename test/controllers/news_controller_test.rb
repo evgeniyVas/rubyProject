@@ -17,7 +17,7 @@ class NewsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create news" do
     assert_difference('News.count') do
-      post news_index_url, params: { news: { body: @news.body, edit_counter: @news.edit_counter, name: @news.name } }
+      post news_index_url, params: { news: { body: @news.body, name: @news.name } }
     end
 
     assert_redirected_to news_url(News.last)

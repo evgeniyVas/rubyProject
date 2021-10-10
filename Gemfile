@@ -16,6 +16,7 @@ gem "slim-rails"
 gem 'devise', '~> 4.8'
 gem 'sidekiq', '~> 6.2', '>= 6.2.2'
 gem "sidekiq-cron", "~> 1.1"
+gem 'rexml', '~> 3.2', '>= 3.2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

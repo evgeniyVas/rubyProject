@@ -1,4 +1,6 @@
 class News < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
   validates :name, presence: true
   validates :body, presence: true, length: {minimum: 10}
   validates :edit_counter, numericality: { less_than_or_equal_to: 5, message: "exceeded"  }
