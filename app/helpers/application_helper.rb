@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def full_title(page_title = "")
-    base_title = "E.V App"
+  def full_title(page_title = '')
+    base_title = 'E.V App'
     if page_title.present?
       "#{page_title} | #{base_title}"
     else

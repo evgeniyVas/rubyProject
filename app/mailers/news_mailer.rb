@@ -3,6 +3,6 @@ class NewsMailer < ApplicationMailer
     @user = params[:user]
     @news = params[:news]
     @domain = params[:domain]
-    mail(to: @user.email, subject: "Latest news!")
+    mail(to: @user.email, subject: 'Latest news!')
   end
 end

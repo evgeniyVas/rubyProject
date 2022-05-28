@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :comments
   def username
-    self.email.split('@')[0].capitalize
+    email.split('@')[0].capitalize
   end
 
   enum subscription: {

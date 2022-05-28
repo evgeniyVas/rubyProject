@@ -22,7 +22,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: jeka
   host: localhost
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: bigmuzzy777
   port: 5432
 
 development:
@@ -88,4 +88,4 @@ production:
   database: myapp_production
   encoding: unicode
   username: jeka
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: bigmuzzy777
