@@ -43,7 +43,7 @@ class NewsController < ApplicationController
     end
   end
 
-  def update
+  def update # rubocop:disable Metrics/AbcSize
     respond_to do |format|
       if @news.updated_at.to_s != params['news']['updated_at']
         format.html do
@@ -88,10 +88,10 @@ class NewsController < ApplicationController
   end
 
   def check_admin
-    unless current_user.admin
-      flash[:danger] = 'You do not have permissions!'
-      redirect_to news_index_path
-    end
+    return if current_user.admin
+
+    flash[:danger] = 'You do not have permissions!'
+    redirect_to news_index_path
   end
 
   def news_params
