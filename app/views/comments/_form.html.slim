@@ -5,7 +5,6 @@
       = form.label :body
     .col-sm-10
       = form.text_field :body, placeholder: 'Body message', class: 'form-control'
-      -if user_signed_in?
-        = form.hidden_field :user_id, value: current_user.id
+      = form.hidden_field :user_id, value: current_user.id
     .col-sm-2.col-form-label
       = form.submit "Send comment", class: 'btn btn-primary'

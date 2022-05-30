@@ -14,7 +14,7 @@ hr.my-3
 
 h4.my-4
   |Comments
-= render 'comments/form'
+= render 'comments/form' if user_signed_in?
 = @users
 - @comments.each do |comment|
   article.mb-2.card [id="comment-#{comment.id}"]
